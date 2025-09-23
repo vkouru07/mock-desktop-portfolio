@@ -1,6 +1,7 @@
 import type { FileEntry } from '../types/FileTypes';
 
 // might change this to yaml or json later
+export const defaultOpenedFileIDs = ['about', 'resume'];
 
 export const files: FileEntry[] = [
   {

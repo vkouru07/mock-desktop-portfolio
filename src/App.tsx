@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { files as initialFiles } from './data/files';
+import { files as initialFiles, defaultOpenedFileIDs } from './data/files';
 import type { FileEntry, ProjectDetailFile } from './types/FileTypes';
 import Desktop from './components/Desktop';
 import Window from './components/Window';
@@ -13,8 +13,24 @@ interface OpenWindow {
 }
 
 function App() {
-  const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
-  const [zCount, setZCount] = useState(1);
+  const createInitialWindows = (): OpenWindow[] => {
+    // const defaultFileIds = ['about', 'resume']; 
+    
+    return defaultOpenedFileIDs.map((id, index) => {
+      const file = initialFiles.find(f => f.id === id);
+      if (!file) return null;
+      
+      const offset = index * 20;
+      return {
+        file,
+        zIndex: index + 1,
+        position: { x: 100 + offset, y: 100 + offset }
+      };
+    }).filter(Boolean) as OpenWindow[];
+  };
+
+  const [openWindows, setOpenWindows] = useState<OpenWindow[]>(createInitialWindows());
+  const [zCount, setZCount] = useState(3); // Start with higher z-index to account for default windows
 
   const openFile = (id: string) => {
     const file = initialFiles.find(f => f.id === id);
