@@ -61,14 +61,23 @@ export const files: FileEntry[] = [
         description: 'Taught kids how to code in Lua/Roblox Studio to make their own games.',
         techStack: ['Lua', 'Roblox Studio'],
       },
+      {
+        type: 'project-detail',
+        id: 'BAM Instructor',
+        description: 'Taught kids some python.'
+      }
     ]
   },
   {
     id: 'about',
     name: 'About Me.txt',
-    type: 'txt',
+    type: 'pdf',
     icon: 'about',
-    content: `I'm a CS student. I'm pretty open-minded, and I've done a variety of stuff.`
+    contentHtml: 
+    `I'm always open to talk! 
+    Doesn't really have to be work-related. Talk to me if you're interested in:
+    linguistics, UX/UI, automata theory, Python3, the free software movement, etc. 
+    Honestly anything - always interested in learning new stuff.`
   },
   {
     id: 'contact',

@@ -20,11 +20,11 @@ function App() {
       const file = initialFiles.find(f => f.id === id);
       if (!file) return null;
       
-      const offset = index * 20;
+      const offset = index * 70;
       return {
         file,
         zIndex: index + 1,
-        position: { x: 100 + offset, y: 100 + offset }
+        position: { x: 200 + offset *2.5, y: 100 + offset }
       };
     }).filter(Boolean) as OpenWindow[];
   };

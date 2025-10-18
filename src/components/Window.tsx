@@ -1,6 +1,7 @@
 import { Rnd } from 'react-rnd';
 import type { FileEntry, ProjectDetailFile } from '../types/FileTypes';
 import ProjectsExplorerWindow from './ProjectsExplorerWindow';
+import './Window.css';
 
 interface Props {
   file: FileEntry;
