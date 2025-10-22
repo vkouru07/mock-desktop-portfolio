@@ -76,7 +76,7 @@ export const files: FileEntry[] = [
     contentHtml: 
     `I'm always open to talk! 
     Doesn't really have to be work-related. Talk to me if you're interested in:
-    linguistics, UX/UI, automata theory, Python3, the free software movement, etc. 
+    linguistics, pedagogy, UX/UI, automata theory, Python3, the free software movement, etc. 
     Honestly anything - always interested in learning new stuff.`
   },
   {

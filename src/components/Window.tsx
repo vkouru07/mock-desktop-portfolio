@@ -43,7 +43,7 @@ export default function Window({ file, onClose, zIndex, onFocus, position, onOpe
           <div>
             <p>{file.description}</p>
             <div>
-              <strong>Tech:</strong> {file.techStack?.join(', ')}
+              {file.techStack && <strong>Tech:</strong>} {file.techStack?.join(', ')}
             </div>
             {file.link && (
               <div><a href={file.link} target="_blank" rel="noopener noreferrer">View Project</a></div>
@@ -69,7 +69,7 @@ export default function Window({ file, onClose, zIndex, onFocus, position, onOpe
     >
       <div className="window-header">
         <span>{file.name}</span>
-        <button onClick={onClose}>✖</button>
+        <button onClick={onClose} className="x-button">x</button>
       </div>
       <div className="window-content">{renderContent()}</div>
     </Rnd>
