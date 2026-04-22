@@ -2,8 +2,6 @@
 
 hii!!! this is a simple portfolio template, click on the 'deployments' tab to the right to view my example on github pages. 
 
-not done with this 
-
 to use: 
 - just add your info inside ```src/data/files.ts```
 - change the title in ```index.html```
