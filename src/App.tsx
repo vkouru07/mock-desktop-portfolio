@@ -6,6 +6,12 @@ import Window from './components/Window';
 import Taskbar from './components/Taskbar';
 import './App.css';
 
+const INIT_OFFSET_X = 200; 
+const INIT_OFFSET_Y = 100; 
+const X_TO_Y_OFFSET_RATIO = 2.5;
+
+const INCREMENTAL_OFFSET = 100;
+
 interface OpenWindow {
   file: FileEntry;
   zIndex: number;
@@ -24,7 +30,7 @@ function App() {
       return {
         file,
         zIndex: index + 1,
-        position: { x: 200 + offset *2.5, y: 100 + offset }
+        position: { x: INIT_OFFSET_X + offset * X_TO_Y_OFFSET_RATIO, y: INIT_OFFSET_Y + offset }
       };
     }).filter(Boolean) as OpenWindow[];
   };
@@ -43,11 +49,11 @@ function App() {
         return prev;
       }
 
-      const offset = prev.length * 20;
+      const offset = prev.length * 20 + INCREMENTAL_OFFSET;
       const windowWithOffset = {
         file,
         zIndex: zCount,
-        position: { x: 100 + offset, y: 100 + offset }
+        position: { x: offset, y: offset }
       };
 
       return [...prev, windowWithOffset];
@@ -71,11 +77,11 @@ function App() {
         return prev;
       }
 
-      const offset = prev.length * 20;
+      const offset = prev.length * 20 + INCREMENTAL_OFFSET;
       const windowWithOffset = {
         file: projectFile,
         zIndex: zCount,
-        position: { x: 100 + offset, y: 100 + offset }
+        position: { x: offset, y: offset }
       };
 
       return [...prev, windowWithOffset];

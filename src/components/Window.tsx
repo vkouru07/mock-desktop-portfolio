@@ -3,6 +3,9 @@ import type { FileEntry, ProjectDetailFile } from '../types/FileTypes';
 import ProjectsExplorerWindow from './ProjectsExplorerWindow';
 import './Window.css';
 
+const WINDOW_WIDTH = 400;
+const WINDOW_HEIGHT = 300;
+
 interface Props {
   file: FileEntry;
   onClose: () => void;
@@ -58,8 +61,8 @@ export default function Window({ file, onClose, zIndex, onFocus, position, onOpe
       default={{
         x: position.x,
         y: position.y,
-        width: 400,
-        height: 300
+        width: WINDOW_WIDTH,
+        height: WINDOW_HEIGHT
       }}
       bounds="parent"
       onDragStart={onFocus}

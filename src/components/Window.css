@@ -1,9 +1,43 @@
 .window {
     overflow: auto;
+    border-color: aquamarine;
+    background-color: black;
+    color: rgb(217, 255, 94);
+    border: 1px solid #aaa;
+    box-shadow: 2px 2px 6px rgba(208, 194, 194, 0.4);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 .x-button {
     /* width: 1vh; */
     /* height: 1vh; */
-    margin:0%;
-    padding:5px; 
+    margin: 0%;
+    padding: 5px;
+}
+
+.window-header {
+    background: #122206;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: move;
+    flex-shrink: 0;
+    top: 0; 
+    position: sticky; 
+}
+
+.window-content {
+    color: rgb(255, 252, 221); 
+    padding: 10px;
+    overflow: auto;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+    min-height: 0;
+    box-sizing: border-box;
 }

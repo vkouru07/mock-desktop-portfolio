@@ -1,9 +1,22 @@
 import type { FileEntry } from '../types/FileTypes';
 
 // might change this to yaml or json later
-export const defaultOpenedFileIDs = ['about', 'resume'];
+export const defaultOpenedFileIDs = ['about', 'resume', 'help'];
 
 export const files: FileEntry[] = [
+  {
+    id: 'help',
+    name: 'Help.txt',
+    type: 'pdf',
+    icon: 'help',
+    contentHtml: `
+      <h4>Hiii! :D</h4>
+      <p>Hey dude! Click around this site to get to know me 
+      and what I can do! </p>
+      <p> Or, clone this on my github and change the data/files.ts files
+      to easily make your own version of this site! </p> 
+      `
+  }, 
   {
     id: 'resume',
     name: 'Resume/Education.pdf',
@@ -12,7 +25,7 @@ export const files: FileEntry[] = [
     contentHtml: `
       <h3>Vaishnavi Kouru</h3>
       <p>Computer Science @ SJSU, 2023-2026 </p>
-      <p>github.com/vkouru07</p>
+      <a>github.com/vkouru07</a>
       <p>Fav Langs: Python3, C++, Java, TS, JS </p>
       <p>
         CS Courses: Data Structures and Algorithms (CS 146), 
@@ -26,10 +39,24 @@ export const files: FileEntry[] = [
     `
   },
   {
+    id: 'academic',
+    name: 'Academia Stuff?',
+    type: 'folder',
+    items: [
+      {
+        id: 'cs154-grader', 
+        name: 'CS154 (Formal Languages and Computability) grader',
+        type: 'project-detail',
+        description: `
+        Grader for CS 154 (Formal Languages and Computability). 
+        Summer 2026. For professor Yan Chen <3. `
+      }
+    ]
+  },
+  {
     id: 'web-dev-projects',
     name: 'Web Dev Projects',
     type: 'folder',
-    // icon: 'projects',
     items: [
       {
         type: 'project-detail',
@@ -57,7 +84,6 @@ export const files: FileEntry[] = [
       {
         type: 'project-detail',
         id: 'ID Tech Roblox Studio / Lua Coding Instructor',
-        // name: 'Personal Portfolio Website',
         description: 'Taught kids how to code in Lua/Roblox Studio to make their own games.',
         techStack: ['Lua', 'Roblox Studio'],
       },
@@ -65,7 +91,12 @@ export const files: FileEntry[] = [
         type: 'project-detail',
         id: 'BAM Instructor',
         description: 'Taught kids some python.'
-      }
+      },
+      {
+        type: 'project-detail',
+        id: 'Kodely Instructor',
+        description: 'Taught kids some block coding. '
+      },
     ]
   },
   {
