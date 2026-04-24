@@ -5,5 +5,6 @@ export const ICONS: Record<string, string> = {
   txt: '📄',
   image: '🖼️',
   folder: '📁',
-  default: '📄'
+  default: '📄',
+  alert: '⚠️'
 };

@@ -15,6 +15,7 @@ export const files: FileEntry[] = [
       and what I can do! </p>
       <p> Or, clone this on my github and change the data/files.ts files
       to easily make your own version of this site! </p> 
+      <p> 
       `
   }, 
   {
@@ -105,8 +106,7 @@ export const files: FileEntry[] = [
     type: 'pdf',
     icon: 'about',
     contentHtml: 
-    `I'm always open to talk! 
-    Doesn't really have to be work-related. Talk to me if you're interested in:
+    `I'm always open to talk for any reason. You should mention it if you're also interested in:
     linguistics, pedagogy, UX/UI, automata theory, Python3, the free software movement, etc. 
     Honestly anything - always interested in learning new stuff.`
   },
@@ -120,5 +120,12 @@ export const files: FileEntry[] = [
       github: 'https://github.com/vkouru07',
       linkedin: 'https://www.linkedin.com/in/vaishnavi-kouru/'
     }
+  },
+  {
+    id: 'bing bong',
+    name: 'bing bong',
+    icon: 'alert',
+    type: 'alert',
+    content: 'ALERT: BING BONG BING BONG'
   }
 ];

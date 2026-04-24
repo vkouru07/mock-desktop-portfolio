@@ -42,6 +42,11 @@ function App() {
     const file = initialFiles.find(f => f.id === id);
     if (!file) return;
 
+    if (file.type === 'alert') {
+      window.alert(file.content);
+      return;
+    }
+
     setOpenWindows(prev => {
       const exists = prev.find(w => w.file.id === id);
       if (exists) {

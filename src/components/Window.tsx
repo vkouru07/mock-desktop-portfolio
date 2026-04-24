@@ -36,9 +36,9 @@ export default function Window({ file, onClose, zIndex, onFocus, position, onOpe
         );
       case 'folder':
         return (
-          <ProjectsExplorerWindow 
-            file={file} 
-            onOpenWindow={onOpenWindow || (() => {})} 
+          <ProjectsExplorerWindow
+            file={file}
+            onOpenWindow={onOpenWindow || (() => { })}
           />
         );
       case 'project-detail':
@@ -56,6 +56,9 @@ export default function Window({ file, onClose, zIndex, onFocus, position, onOpe
     }
   };
 
+  if (file.type == 'alert') {
+    return (<div></div>); 
+  }
   return (
     <Rnd
       default={{

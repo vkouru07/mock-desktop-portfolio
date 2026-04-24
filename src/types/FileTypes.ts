@@ -1,4 +1,4 @@
-export type FileType = 'pdf' | 'folder' | 'txt' | 'contact' | 'project-detail';
+export type FileType = 'pdf' | 'folder' | 'txt' | 'contact' | 'project-detail' | 'alert';
 
 export interface BaseFile {
   id: string;
@@ -39,4 +39,9 @@ export interface ContactFile extends BaseFile {
   };
 }
 
-export type FileEntry = ProjectFolder | PdfFile | TxtFile | ContactFile | ProjectDetailFile;
+export interface AlertFile extends BaseFile {
+  type: 'alert';
+  content: string;
+}
+
+export type FileEntry = ProjectFolder | PdfFile | TxtFile | ContactFile | ProjectDetailFile | AlertFile;
