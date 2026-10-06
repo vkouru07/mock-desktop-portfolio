@@ -1,0 +1,73 @@
+// format follows grammar/portfolio.pest (* = opened by default)
+// put PDFs and other assets in the files/ folder
+// leading tabs inside text are ignored, so indent with tabs
+
+title = 'Vaishnavi Kouru PORTFOLIOO';
+
+* TXT Help.txt help {
+	<b>Hiii! :D</b>
+	To make your own 'lil site, clone the repo on my github, and change the stuff in the data/info.txt file according to the grammar in grammar/... 
+}
+
+* PDF Resume.pdf resume {
+	files/resume.pdf
+}
+
+TXT Education.txt resume {
+	<b>Vaishnavi Kouru</b>
+	Computer Science @ SJSU, 2023-2026
+	github.com/vkouru07
+
+	Fav Langs: LISP / Scheme / Racket, Python3, Rust
+	Other languages I've used: C++, Java, TS, JS
+
+	Favorite COMP SCI Courses: Formal Languages and Computability (CS 154), Programming Paradigms (CS 152), Concepts of Compiler Design (CS 153), Individual Studies for Honors (CS 180H)
+
+	Other courses..: Data Structures and Algorithms (CS 146),
+	Object Oriented Design (CS 151),
+	Computer Systems (CS 47), Operating Systems (CS 149),
+	Computer Architecture (CS 147), Mobile App Development (CS 175)
+
+	Math Courses: Linear Algebra (MATH 39), Combinatorics (Math 142), Discrete Math (MATH 42)
+}
+
+FOLDER 'SJSU work experiences' {
+	TXT 'CSSL tutor' {
+		Tutor for the CS Department at SJSU. On top of regular DSA/core tutoring, specialized in OOD, Compilers, Big Data, and Info Security.
+	}
+	TXT 'CS180H Individual Studies for Honors' {
+		Did some research on: the diagnostics on various loops for Clang, targeted to RVV.
+	}
+	TXT 'CS154 (Formal Languages and Computability) grader' {
+		Grader for CS 154 (Formal Languages and Computability).
+		Summer 2026. For professor Yan Chen <3.
+	}
+}
+
+FOLDER 'other teaching/ tutoring experience' {
+	TXT 'ID Tech Roblox Studio / Lua Coding Instructor' {
+		Taught kids how to code in Lua/Roblox Studio to make their own games.
+		<b>Tech:</b> Lua, Roblox Studio
+	}
+
+	TXT 'BAM Instructor' {
+		Taught kids some python.
+	}
+
+	TXT 'Kodely Instructor' {
+		Taught kids some block coding.
+	}
+}
+
+TXT Contact contact {
+	I'm always open to talk for any reason. Maybe we have an interest in common?: 
+	linguistics, drawing, guitar, pedagogy, UX/UI, automata theory, LISP, evil killer sudoku, etc.
+
+	<b>Email:</b> vkouru07@gmail.com
+	<b>GitHub:</b> <a href="https://github.com/vkouru07">github.com/vkouru07</a>
+	<b>LinkedIn:</b> <a href="https://www.linkedin.com/in/vaishnavi-kouru/">linkedin.com/in/vaishnavi-kouru</a>
+}
+
+ALERT 'bing bong' alert {
+	ALERT: BING BONG BING BONG
+}

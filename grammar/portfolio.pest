@@ -1,0 +1,40 @@
+// Grammar for data/info.txt, used by build.rs.
+//
+// every file is written as
+//
+//   *? FILETYPE name icon? {
+//   text, kept exactly as written
+//   }
+//
+// A leading `*` denotes a file that is opened by default.
+// `name` is both the file's id and its display name; quote it ('about me.txt')
+// if it contains spaces or other symbols. TXT and ALERT text may contain
+// inline HTML (<b>, <i>, <em>, ...). A PDF's text is the path to the .pdf file.
+// A FOLDER's braces hold more files instead of text. Write `\}` for a literal
+// `}` inside text. Leading tabs on each line of text are ignored, so tabs can
+// be used to indent the data file; leading spaces are kept.
+
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+COMMENT    = _{ "//" ~ (!NEWLINE ~ ANY)* }
+
+data    = { SOI ~ setting* ~ file* ~ EOI }
+setting = { "title" ~ "=" ~ string ~ ";" }
+
+file      = { open? ~ (text_file | folder) }
+open      = { "*" }
+text_file = { text_kind ~ name ~ icon? ~ text }
+text_kind = @{ ("TXT" | "PDF" | "ALERT") ~ !word_char }
+folder    = { folder_kw ~ name ~ icon? ~ "{" ~ file* ~ "}" }
+folder_kw = @{ "FOLDER" ~ !word_char }
+
+name = { string | word }
+icon = { word }
+
+word      = @{ (ASCII_ALPHANUMERIC | "_") ~ word_char* }
+word_char = _{ ASCII_ALPHANUMERIC | "_" | "." | "-" }
+
+string       = ${ "'" ~ string_inner ~ "'" }
+string_inner = @{ ("\\" ~ ANY | !("'" | "\\" | NEWLINE) ~ ANY)* }
+
+text       = ${ "{" ~ text_inner ~ "}" }
+text_inner = @{ ("\\}" | !"}" ~ ANY)* }
