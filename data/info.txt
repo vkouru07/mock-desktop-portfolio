@@ -9,11 +9,11 @@ title = 'Vaishnavi Kouru PORTFOLIOO';
 	To make your own 'lil site, clone the repo on my github, and change the stuff in the data/info.txt file according to the grammar in grammar/... 
 }
 
-* PDF Resume.pdf resume {
+* PDF Resume.pdf general-resume {
 	files/resume.pdf
 }
 
-TXT Education.txt resume {
+* TXT Education.txt resume {
 	<b>Vaishnavi Kouru</b>
 	Computer Science @ SJSU, 2023-2026
 	github.com/vkouru07
@@ -31,7 +31,7 @@ TXT Education.txt resume {
 	Math Courses: Linear Algebra (MATH 39), Combinatorics (Math 142), Discrete Math (MATH 42)
 }
 
-FOLDER 'SJSU work experiences' {
+* FOLDER 'SJSU work experiences' {
 	TXT 'CSSL tutor' {
 		Tutor for the CS Department at SJSU. On top of regular DSA/core tutoring, specialized in OOD, Compilers, Big Data, and Info Security.
 	}
