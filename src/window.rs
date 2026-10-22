@@ -6,6 +6,9 @@ use web_sys::wasm_bindgen::JsCast;
 
 const WINDOW_SIZE: (u32, u32) = (400, 300);
 const PDF_WINDOW_SIZE: (u32, u32) = (560, 640);
+/// PDF open parameters that hide the viewer's thumbnail sidebar (`navpanes` for
+/// Chrome/Safari, `pagemode` for Firefox) and fit the page to the window width.
+const PDF_VIEW_PARAMS: &str = "#navpanes=0&pagemode=none&view=FitH";
 /// how much of a window must stay on screen while dragging.
 const MIN_VISIBLE: f64 = 60.0;
 const TASKBAR_HEIGHT: f64 = 40.0;
@@ -22,9 +25,25 @@ pub fn Window(win: Win) -> impl IntoView {
         _ => WINDOW_SIZE,
     };
 
+    let is_top = move || {
+        let z = win.z.get();
+        desk.wins.with(|ws| ws.iter().all(|w| w.file == win.file || w.z.get() < z))
+    };
+
     let body = match file.kind {
         Kind::Txt(text) | Kind::Alert(text) => view! { <div class="text" inner_html=text></div> }.into_any(),
-        Kind::Pdf(src) => view! { <iframe class="pdf" src=src title=file.name></iframe> }.into_any(),
+        Kind::Pdf(src) => {
+            let src = if src.contains('#') { src.to_owned() } else { format!("{src}{PDF_VIEW_PARAMS}") };
+            // clicks inside an iframe never reach this page, so a background PDF
+            // is covered by a shield that catches the click and focuses the window
+            view! {
+                <iframe class="pdf" src=src title=file.name></iframe>
+                <Show when=move || !is_top()>
+                    <div class="pdf-shield"></div>
+                </Show>
+            }
+            .into_any()
+        }
         Kind::Folder(children) => view! {
             <ul class="folder">
                 {children

@@ -120,8 +120,14 @@ button:hover {
 }
 
 .window-content:has(> .pdf) {
+  position: relative;
   padding: 0;
   overflow: hidden;
+}
+
+.pdf-shield {
+  position: absolute;
+  inset: 0;
 }
 
 .pdf {

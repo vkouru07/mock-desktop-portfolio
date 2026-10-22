@@ -4,11 +4,6 @@
 
 title = 'Vaishnavi Kouru PORTFOLIOO';
 
-* TXT Help.txt help {
-	<b>Hiii! :D</b>
-	To make your own 'lil site, clone the repo on my github, and change the stuff in the data/info.txt file according to the grammar in grammar/... 
-}
-
 * PDF Resume.pdf general-resume {
 	files/resume.pdf
 }
@@ -42,6 +37,11 @@ title = 'Vaishnavi Kouru PORTFOLIOO';
 		Grader for CS 154 (Formal Languages and Computability).
 		Summer 2026. For professor Yan Chen <3.
 	}
+}
+
+* TXT Help.txt help {
+	<b>Hiii! :D</b>
+	To make your own 'lil site, clone the repo on my github, and change the stuff in the data/info.txt file according to the grammar in grammar/... 
 }
 
 FOLDER 'other teaching/ tutoring experience' {
