@@ -40,3 +40,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Pages only serves the newest deployment; this just clears old entries out
+  # of the repo's Deployments list.
+  cleanup:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+    steps:
+      - name: Delete old Pages deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api "repos/$REPO/deployments?environment=github-pages" --paginate --jq '.[].id' \
+            | tail -n +2 \
+            | while read -r id; do
+                gh api -X POST "repos/$REPO/deployments/$id/statuses" -f state=inactive > /dev/null
+                gh api -X DELETE "repos/$REPO/deployments/$id"
+                echo "deleted deployment $id"
+              done
